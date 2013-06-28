@@ -1,0 +1,28 @@
+<template name="navbar">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="#">IAP</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li id="studentCheckin-tab"><a href="/student/checkin">Student Check-in</a></li>
+            <li id="companyCheckin-tab"><a href="/company/checkin">Company Check-in</a></li>
+            {{#if isStudent}}
+              <li id="studentPoints-tab"><a href="/student/points">My Points</a></li>
+              <li id="studentRequestContact-tab"><a href="/student/request-contact">Request Contact</a></li>
+              <li id="studentLeaderboard-tab"><a href="/student/leaderboard">Leaderboard</a></li>
+            {{/if}}
+            {{#if isCompany}}
+              <li id="companyStudentId-tab"><a href="/company/student">Student Profile</a></li>
+            {{/if}}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+</template>

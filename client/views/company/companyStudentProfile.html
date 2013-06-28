@@ -1,0 +1,40 @@
+<template name="companyStudentProfile">
+  {{#each student}}
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd>{{name}}</dd>
+
+      <dt>School</dt>
+      <dd>{{school}}</dd>
+
+      <dt>Year in school</dt>
+      <dd>{{year}}</dd>
+
+      <dt>Expected graduation</dt>
+      <dd>{{graduation}}</dd>
+
+      <dt>Interning at</dt>
+      <dd>{{interning}}</dd>
+
+      <dt>Internship role</dt>
+      <dd>{{role}}</dd>
+    </dl>
+  {{/each}}
+
+  <form id="points">
+    <label class="checkbox">
+      <input type="checkbox" name="checkin" value="1" checked>
+      Check this student in
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" name="extra-point" value="1">
+      Give this student an extra point
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" name="connect" value="0">
+      I want to connect with this student
+    </label>
+
+    <button class="btn btn-large btn-primary" type="submit">Save</button>
+  </form>
+</template>

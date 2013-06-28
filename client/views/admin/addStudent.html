@@ -1,0 +1,109 @@
+<template name="addStudent">
+  <form id="student-registration" class="form-horizontal">
+
+    <div class="control-group">
+      <label class="control-label" for="name">Student name</label>
+      <div class="controls">
+        <input type="text" name="name" placeholder="Student name">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="email">Email</label>
+      <div class="controls">
+        <input type="text" name="email" placeholder="Email">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="school">School</label>
+      <div class="controls">
+        <input type="text" name="school" placeholder="School">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="year">Year in school</label>
+      <div class="controls">
+        <select name="year">
+          <option value="freshman">Freshman</option>
+          <option value="sophomore">Sophomore</option>
+          <option value="junior">Junior</option>
+          <option value="senior">Senior</option>
+          <option value="masters">Masters</option>
+          <option value="phd">PhD</option>
+          <option value="n/a">N/A</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Graduation date</label>
+      <div class="controls">
+        <select name="grad-month">
+          <option value="0">Month</option>
+          <option value="1">01</option>
+          <option value="2">02</option>
+          <option value="3">03</option>
+          <option value="4">04</option>
+          <option value="5">05</option>
+          <option value="6">06</option>
+          <option value="7">07</option>
+          <option value="8">08</option>
+          <option value="9">09</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+
+        <select name="grad-year">
+          <option value="0">Year</option>
+          <option value="2006">2006</option>
+          <option value="2007">2007</option>
+          <option value="2008">2008</option>
+          <option value="2009">2009</option>
+          <option value="2010">2010</option>
+          <option value="2011">2011</option>
+          <option value="2012">2012</option>
+          <option value="2013">2013</option>
+          <option value="2014">2014</option>
+          <option value="2015">2015</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="interning">Currently interning at</label>
+      <div class="controls">
+        <input type="text" name="interning" placeholder="Currently interning at">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="role">Internship role</label>
+      <div class="controls">
+        <input type="text" name="role" placeholder="Internship role">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="referral">Who referred you?</label>
+      <div class="controls">
+        <input type="text" name="referral" placeholder="Referral">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <button class="btn btn-large btn-primary" type="submit">Create student</button>
+      </div>
+    </div>
+
+  </form>
+
+</template>

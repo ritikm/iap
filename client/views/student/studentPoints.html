@@ -1,0 +1,19 @@
+<template name="studentPoints">
+  <h1>You have {{totalPoints}} points!</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each companyPoints}}
+        <tr>
+          <td>{{company}}</td>
+          <td>{{points}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

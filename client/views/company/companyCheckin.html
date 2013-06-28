@@ -1,0 +1,13 @@
+<template name="companyCheckin">
+  <form class="form-signin">
+    <h2 class="form-signin-heading">Company check in</h2>
+    <select id="company-name">
+      {{#each companies}}
+        <option value="{{name}}">{{name}}</option>
+      {{/each}}
+    </select>
+    <input type="text" id="username" class="input-block-level" placeholder="Username">
+    <input type="text" id="email" class="input-block-level" placeholder="Email">
+    <button class="btn btn-large btn-primary" type="submit">Check in</button>
+  </form>
+</template>
