@@ -15,14 +15,20 @@ Template.companyCheckin.events = {
     var email = $("#email").val();
     var username = $("#username").val();
 
-    Meteor.call("verifyCompanyRepresentative", companyName, username, email, function(error, isValid) {
-      if (isValid) {
-        Meteor.loginWithPassword(idNumber, "pass-tony", function(error) {
-          if (!error) {
-            Meteor.subscribe("companyStudents");
-          }
-        });
+    Meteor.loginWithPassword(username, "pass-tony", function(error) {
+      if (!error) {
+        Meteor.subscribe("companyStudents");
       }
     });
+
+//    Meteor.call("verifyCompanyRepresentative", companyName, username, email, function(error, isValid) {
+//      if (isValid) {
+//        Meteor.loginWithPassword(idNumber, "pass-tony", function(error) {
+//          if (!error) {
+//            Meteor.subscribe("companyStudents");
+//          }
+//        });
+//      }
+//    });
   }
 };
