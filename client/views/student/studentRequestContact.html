@@ -1,4 +1,16 @@
 <template name="studentRequestContact">
+  {{#if contactRequestedSuccess}}
+    <div class="alert alert-success">
+      Successfully added contact! We'll send you their contact information after the event.
+    </div>
+  {{/if}}
+
+  {{#if contactRequestedError}}
+    <div class="alert alert-error">
+      Contact not found!
+    </div>
+  {{/if}}
+
   <form class="form-signin">
     <h2 class="form-signin-heading">Contact request</h2>
     <input type="text" id="id-number" class="input-block-level" placeholder="Student/Company ID #">

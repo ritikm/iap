@@ -1,9 +1,8 @@
 Template.companyStudentProfile.helpers({
   student: function() {
     var studentId = Session.get("currentStudent");
-    var data = User.findOne(studentId).profile.student;
-    data.graduation = "" + data.grad.month + "/" + data.grad.year;
-    return [data];
+    var student = User.findOne(studentId);
+    return student ? [student.profile.student] : [];
   }
 });
 
@@ -29,5 +28,7 @@ Template.companyStudentProfile.events = {
     if (form["connect"]) {
       User.push(Meteor.userId(), "profile.company.contactsRequested", studentId);
     }
+
+    Meteor.Router.to("/company/student");
   }
 };

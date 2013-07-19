@@ -1,9 +1,9 @@
 Features:
-- Show a student badge after checking in
-- Show follow-up confirmation page after "request contact"
-- Clean up companyStudentProfile page
-- Fix topbar padding-top on resize
-- Fix grad dates not working
+[N/A] - Show a student badge after checking in
+[OPTIONAL] - Add a user login failure page
 
 Security:
 - Figure out proper database permissions
+
+Data:
+- Import script

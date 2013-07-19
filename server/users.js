@@ -3,6 +3,7 @@
 Accounts.onCreateUser(function(options, user) {
   var profile = {};
   options = options.profile;
+  options = options ? options : {};
 
   if (options.company) {
     // We're adding a new company
@@ -15,19 +16,20 @@ Accounts.onCreateUser(function(options, user) {
     };
 
     user._id = options._id;
-  } else {
+  } else if (options.student) {
     // We're adding a new student
     profile["student"] = options;
 
     delete profile.student.student;
-    delete profile.student["grad-month"];
-    delete profile.student["grad-year"];
 
-    profile.student["grad"] = { month: parseInt(options["grad-month"]), year: parseInt(options["grad-year"]) };
     profile.student.companyPoints = {};
     profile.student.contactsRequested = [];
 
     user._id = user.username;
+  } else {
+    if (user.username == "admin-signal") {
+      user._id = "admin";
+    }
   }
 
   user.profile = profile;
@@ -78,8 +80,14 @@ Meteor.methods({
     return studentPoints;
   },
 
+  checkStudentId: function(studentId) {
+    return User.findOne(studentId) ? true : false;
+  },
+
   addStudent: function(form) {
-    var id = generateId();
+//    var id = generateId();
+    var id = form.id;
+    delete form.id;
     Accounts.createUser({ username: id, password: "pass-tony", profile: form });
 
     return true;
@@ -93,7 +101,7 @@ Meteor.methods({
   },
 
   addCompanyRepresentative: function(name, email) {
-    User.push({ "profile.company.name": name }, "representatives", email);
+    User.push({ "profile.company.name": name }, "profile.company.representatives", email);
   },
 
   verifyCompanyRepresentative: function(companyName, username, email) {

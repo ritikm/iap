@@ -19,9 +19,15 @@ Meteor.publish(null, function() {
   });
 });
 
-Meteor.publish("companyStudents", function() {
-  return User.find({ "profile.student": { $exists: true } });
+Meteor.publish("companyStudent", function(studentId) {
+  console.log("companyStudent:", User.findOne(studentId));
+
+  return User.find({ "_id": studentId });
 });
+
+//Meteor.publish("companyStudents", function() {
+//  return User.find({ "profile.student": { $exists: true } });
+//});
 //
 //Meteor.publish("studentProfile", function(studentId) {
 //  console.log("studentId", studentId);

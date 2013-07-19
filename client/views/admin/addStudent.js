@@ -15,7 +15,7 @@ Template.addStudent.events = {
 
     Meteor.call("addStudent", form, function(error, result) {
       if (result) {
-        alert("OK!");
+        alert("OK! Your ID number is: " + form.id);
       }
     });
   }

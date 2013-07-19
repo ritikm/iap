@@ -15,13 +15,10 @@ Template.studentLeaderboard.helpers({
       };
     });
 
-    console.log("client", studentPoints);
-
     studentPoints = _.sortBy(studentPoints, function(student) {
-      return Math.max(student.totalPoints);
+      return -student.totalPoints;
     });
 
-    console.log(studentPoints);
     return studentPoints;
-  },
+  }
 });

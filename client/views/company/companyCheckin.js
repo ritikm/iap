@@ -12,23 +12,25 @@ Template.companyCheckin.events = {
   'submit .form-signin': function(e) {
     e.preventDefault();
     var companyName = $("#company-name").val();
-    var email = $("#email").val();
     var username = $("#username").val();
+    var email = $("#email").val();
 
-    Meteor.loginWithPassword(username, "pass-tony", function(error) {
-      if (!error) {
-        Meteor.subscribe("companyStudents");
-      }
-    });
-
-//    Meteor.call("verifyCompanyRepresentative", companyName, username, email, function(error, isValid) {
-//      if (isValid) {
-//        Meteor.loginWithPassword(idNumber, "pass-tony", function(error) {
-//          if (!error) {
-//            Meteor.subscribe("companyStudents");
-//          }
-//        });
+//    Meteor.loginWithPassword(username, "pass-tony", function(error) {
+//      if (!error) {
+////        Meteor.subscribe("companyStudents");
 //      }
 //    });
+
+    Meteor.call("verifyCompanyRepresentative", companyName, username, email, function(error, isValid) {
+      console.log("error:", error, "isValid:", isValid);
+      if (isValid) {
+        Meteor.loginWithPassword(username, "pass-tony", function(error) {
+          if (!error) {
+//            Meteor.subscribe("companyStudents");
+            Meteor.Router.to("/company/student");
+          }
+        });
+      }
+    });
   }
 };

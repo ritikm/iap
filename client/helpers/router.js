@@ -1,5 +1,7 @@
 var RouterFunctions = {
   companyStudentProfile: function(studentId) {
+    Meteor.subscribe("companyStudent", studentId);
+    console.log("studentId:", studentId, User.findOne(studentId));
     Session.set("currentStudent", studentId);
     return 'companyStudentProfile';
   }
@@ -8,9 +10,9 @@ var RouterFunctions = {
 Meteor.Router.add({
   '/': 'index',
   '/test': 'test',
-  '/admin-tony/student/add': 'addStudent',
-  '/admin-tony/company/add': 'addCompany',
-  '/admin-tony/company/representative/add': 'addCompanyRepresentative',
+  '/admin/student/add': 'addStudent',
+  '/admin/company/add': 'addCompany',
+  '/admin/company/representative/add': 'addCompanyRepresentative',
   '/student/checkin': 'studentCheckin',
   '/student/points': 'studentPoints',
   '/student/request-contact': 'studentRequestContact',
@@ -42,8 +44,13 @@ Meteor.Router.filters({
   },
 
   'checkAdmin': function(page) {
-    // FIXME: permissions
-    return page;
+    if (Meteor.loggingIn()) {
+      return "loading";
+    } else if (Meteor.user() && Meteor.user()._id == "admin") {
+      return page;
+    } else {
+      return "studentCheckin";
+    }
   }
 });
 
